@@ -13,9 +13,9 @@ docker-compose up
 
 ## Generate SSL Certificates
 
-Copy logstash-forwarder.key in elk-server/logstash/conf
-Copy logstash-forwarder.crt in elk-server/logstash/conf and elk-client/logstash-forwarder/conf
-Change IP/FQDN in elk-client/logstash-forwarder/conf/logstash-forwarder.conf
+Copy logstash-forwarder.key to elk-server/logstash/conf.
+Copy logstash-forwarder.crt to elk-server/logstash/conf and elk-client/logstash-forwarder/conf.
+Change IP/FQDN in elk-client/logstash-forwarder/conf/logstash-forwarder.conf.
 
 ### IP Address
 Change IP address in [ v3_ca ] section in elk-server/openssl.cnf file.
