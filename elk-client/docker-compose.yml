@@ -1,0 +1,11 @@
+logstashforwarder:
+  build: logstash-forwarder
+  command: /opt/logstash-forwarder/logstash-forwarder -config /conf/logstash-forwarder.conf
+  volumes_from:
+   - application
+application:
+  build: spring-boot
+  ports:
+   - "8080:8080"
+  volumes:
+   - /tmp/
