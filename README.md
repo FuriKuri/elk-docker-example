@@ -2,12 +2,6 @@
 
 ## Start
 ```shell
-cd elk-server
-docker-compose up
-```
-
-```shell
-cd elk-client
 docker-compose up
 ```
 
@@ -25,7 +19,7 @@ openssl req -config openssl.cnf -x509 -days 3650 -batch -nodes -newkey rsa:2048 
 
 ### FQDN (DNS)
 ```shell
-openssl req -subj '/CN=logstash_server_fqdn/' -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout logstash-forwarder.key -out logstash-forwarder.crt
+openssl req -subj '/CN=logstash/' -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout logstash-forwarder.key -out logstash-forwarder.crt
 ```
 
 
