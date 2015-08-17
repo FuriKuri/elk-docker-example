@@ -1,8 +1,31 @@
+elasticsearch:
+  image: elasticsearch
+  ports:
+   - "9200:9200"
+   - "9300:9300"
+  volumes:
+  - /data:/usr/share/elasticsearch/data
+kibana:
+  image: kibana
+  ports:
+   - "5601:5601"
+  links:
+   - elasticsearch
+logstash:
+  build: ../elk-server/logstash
+  command: logstash --config /conf
+  hostname: logstash
+  ports:
+   - "5000:5000"
+  links:
+   - elasticsearch
 logstashforwarder:
   build: logstash-forwarder
   command: /opt/logstash-forwarder/logstash-forwarder -config /conf/logstash-forwarder.conf
   volumes_from:
    - application
+  links:
+   - logstash
 application:
   build: spring-boot
   ports:
